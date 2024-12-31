@@ -27,13 +27,15 @@ const Card = ({ shoe }) => {
     <div>
       <div className="w-full sm:w-[300px] h-auto shadow-sm rounded-2xl p-4 bg-slate-50 dark:bg-[#1f1b24] dark:hover:bg-[#121015] dark:text-white dark:outline-none dark:border-none border border-slate-100 outline outline-slate-100 hover:shadow-2xl relative">
         <div className="flex flex-col gap-4">
-          {/* Image Section */}
+          {/* Image Section with Preview Link */}
           <div className="relative">
-            <img
-              src={img}
-              alt="shoe"
-              className="w-full h-[200px] object-cover rounded-md"
-            />
+            <Link to={`/preview/${id}`}>
+              <img
+                src={img}
+                alt="shoe"
+                className="w-full h-[200px] object-cover rounded-md cursor-pointer"
+              />
+            </Link>
             <Link to={`/preview/${id}`}>
               <button className="absolute bg-slate-600 dark:bg-slate-800 text-white text-xs p-1 top-2 right-2 rounded-md animate-pulse">
                 Preview

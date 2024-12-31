@@ -41,7 +41,7 @@ const LoaderComponent = ({ onLoadComplete }) => {
   const textAnimation = {
     fontSize: '24px',
     fontWeight: 'bold',
-    color: '#36D7B7',
+    color: '#000000',
     marginTop: '20px',
     textAlign: 'center', // Center align the text
     opacity: loading ? 1 : 0, // Fade effect on text

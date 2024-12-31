@@ -4,23 +4,48 @@ import React from "react";
 const galleryData = [
   {
     title: "Custom Aari Work - Design 1",
-    largeImage: "./IMG-20241228-WA0004.jpg",
-    smallImage: "./IMG-20241228-WA0002.jpg",  // Replace with your actual thumbnail images
-  },
-  {
-    title: "Aari Accessories - Set 1",
-    largeImage: "./IMG-20241228-WA0004.jpg",
-    smallImage: "./IMG-20241228-WA0002.jpg",
+    largeImage: "./3.jpg",
+    smallImage: "./3.jpg",  // Replace with your actual thumbnail images
   },
   {
     title: "Aari Custom Work - Design 2",
-    largeImage: "./IMG-20241228-WA0004.jpg",
-    smallImage: "./IMG-20241228-WA0002.jpg",
+    largeImage: "./6.jpg",
+    smallImage: "./6.jpg",
   },
   {
-    title: "Aari Accessories - Set 2",
-    largeImage: "./IMG-20241228-WA0004.jpg",
-    smallImage: "./IMG-20241228-WA0002.jpg",
+    title: "Aari Custom Work - Design 3",
+    largeImage: "./9.jpg",
+    smallImage: "./9.jpg",
+  },
+  {
+    title: "Aari Custom Work - Design 4",
+    largeImage: "./10.jpg",
+    smallImage: "./10.jpg",
+  },
+  {
+    title: "Aari Custom Work - Design 5",
+    largeImage: "./1.jpg",
+    smallImage: "./1.jpg",
+  },
+  {
+    title: "Aari Custom Work - Design 6",
+    largeImage: "./8.jpg",
+    smallImage: "./8.jpg",
+  },
+  {
+    title: "Aari Custom Work - Design 7",
+    largeImage: "./2.jpg",
+    smallImage: "./2.jpg",
+  },
+  {
+    title: "Aari Custom Work - Design 8",
+    largeImage: "./11.jpg",
+    smallImage: "./11.jpg",
+  },
+  {
+    title: "Aari Custom Work - Design 9",
+    largeImage: "./13.jpg",
+    smallImage: "./13.jpg",
   },
 ];
 

@@ -216,25 +216,49 @@ const Home = (props) => {
 
       {/* About Section */}
       {isLoaded && (
-        <div id="about" className="py-20 bg-white">
+          <div id="about" className="py-20 bg-white">
           <div className="container mx-auto px-6">
-            <div className="flex flex-col lg:flex-row gap-10">
-              <div className="lg:w-1/2">
+            <div
+              className={`flex ${
+                isMobile ? "flex-col" : "flex-col lg:flex-row"
+              } gap-10 items-center lg:items-start`}
+            >
+              {/* Image Section */}
+              <div
+                className={`flex justify-center overflow-hidden ${
+                  isMobile ? "w-1/3" : "lg:w-1/3"
+                }`}
+              >
                 <img
-                  src="img/about.jpg"
+                  src="./6.jpg"
                   alt="About Us"
-                  className="w-full rounded-lg shadow-lg"
+                  className={`rounded-lg shadow-lg object-cover ${
+                    isMobile ? "w-[90%] max-h-[300px]" : "w-[60%] lg:w-full max-w-sm"
+                  }`}
+                  style={{
+                    objectPosition: isMobile ? "center" : "top",
+                    height: isMobile ? "300px" : "600px",
+                  }}
                 />
               </div>
-              <div className="lg:w-1/2">
+  
+              {/* Text Section */}
+              <div
+                className={`flex flex-col ${
+                  isMobile ? "w-full text-left" : "lg:w-2/3"
+                }`}
+              >
                 <h2 className="text-4xl font-semibold text-gray-800">
                   About Us
                 </h2>
                 <p className="mt-4 text-lg text-gray-600">{data.paragraph}</p>
+  
                 <h3 className="mt-8 text-3xl sm:text-2xl font-semibold text-gray-800">
                   Why Choose Us?
                 </h3>
+  
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
+                  {/* First Column of Reasons */}
                   <div>
                     <ul className="list-disc pl-5 text-lg text-gray-600">
                       {data.Why.map((d, i) => (
@@ -244,6 +268,8 @@ const Home = (props) => {
                       ))}
                     </ul>
                   </div>
+  
+                  {/* Second Column of Reasons */}
                   <div>
                     <ul className="list-disc pl-5 text-lg text-gray-600">
                       {data.Why2.map((d, i) => (
@@ -259,6 +285,7 @@ const Home = (props) => {
           </div>
         </div>
       )}
+
       {isLoaded && (
         <div>
           {/* Other sections of the home page */}
@@ -361,83 +388,94 @@ const Home = (props) => {
       )}
       {/* Footer */}
       {isLoaded && (
-        <div id="footer" className="bg-gray-800 text-white py-6 text-center">
-          {/* Contact Info */}
-          <div className="container mx-auto flex flex-col lg:flex-row justify-between items-start lg:items-center px-6">
-            {/* Social Links (Left Side) */}
-            {/* Contact Info (Right Side) */}
-            <div className="contact-info text-right lg:text-left">
-              <h3 className="text-xl font-semibold text-white mb-4">
-                Contact Info
-              </h3>
-
-              <div className="space-y-6">
-                <p className="text-lg text-gray-400">
-                  <span className="font-semibold text-white"> Address:</span>{" "}
-                  {props.data
-                    ? props.data.address
-                    : "2C-2nd Block, Neelkamal Apartment, Kazhipattur 603103"}
-                </p>
-                <p className="text-lg text-gray-400">
-                  <span className="font-semibold text-white">Phone:</span>{" "}
-                  {props.data ? props.data.phone : "+91-9655824078"}
-                </p>
-                <p className="text-lg text-gray-400">
-                  <span className="font-semibold text-white">Email:</span>{" "}
-                  {props.data ? props.data.email : "rubyaarifusion.com"}
-                </p>
-              </div>
-            </div>
-            <div className="social mb-6 lg:mb-0 text-center lg:text-right">
-              <h3 className="text-xl font-semibold text-white mb-4">
-                Follow Us
-              </h3>
-              <ul className="flex justify-center lg:justify-start space-x-6">
-                <li>
-                  <a
-                    href={props.data ? props.data.facebook : "/"}
-                    className="text-blue-600 text-2xl"
-                  >
-                    <i className="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={props.data ? props.data.twitter : "/"}
-                    className="text-pink-500 text-2xl"
-                  >
-                    <i className="fa fa-instagram"></i>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={
-                      props.data
-                        ? props.data.youtube
-                        : "https://www.youtube.com/@RubyAariFusion"
-                    }
-                    className="text-red-600 text-2xl"
-                  >
-                    <i className="fa fa-youtube"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          {/* Footer Bottom */}
-          <div className="text-center mt-6">
-            <p>
-              <a
-                href="http://www.rubyaarifusion.com"
-                rel="nofollow"
-                className="text-gray-400"
-              >
-                &copy; 2024 Ruby Aari Fusion.
-              </a>
-            </p>
-          </div>
+  <div id="footer" className="bg-gray-800 text-white py-6 text-center">
+    <div className="container mx-auto flex flex-col lg:flex-row justify-center lg:justify-between items-center px-6">
+      {/* Contact Info */}
+      <div
+        className={`contact-info ${
+          window.innerWidth <= 768 ? "text-center" : "text-right lg:text-left"
+        } mb-6 lg:mb-0`}
+      >
+        <h3 className="text-xl font-semibold text-white mb-4">Contact Info</h3>
+        <div className="space-y-6">
+          <p className="text-lg text-gray-400">
+            <span className="font-semibold text-white">Address:</span>{" "}
+            {props.data
+              ? props.data.address
+              : "2C-2nd Block, Neelkamal Apartment, Kazhipattur 603103"}
+          </p>
+          <p className="text-lg text-gray-400">
+            <span className="font-semibold text-white">Phone:</span>{" "}
+            {props.data ? props.data.phone : "+91-9655824078"}
+          </p>
+          <p className="text-lg text-gray-400">
+            <span className="font-semibold text-white">Email:</span>{" "}
+            {props.data ? props.data.email : "rubyaarifusion.com"}
+          </p>
         </div>
-      )}
+      </div>
+
+      {/* Social Links */}
+      <div
+        className={`social ${
+          window.innerWidth <= 768 ? "text-center" : "text-right lg:mb-0"
+        }`}
+      >
+        <h3 className="text-xl font-semibold text-white mb-4">Follow Us</h3>
+        <ul
+          className={`flex ${
+            window.innerWidth <= 768
+              ? "justify-center space-x-6"
+              : "justify-start lg:space-x-6"
+          }`}
+        >
+          <li>
+            <a
+              href={props.data ? props.data.facebook : "/"}
+              className="text-blue-600 text-2xl"
+            >
+              <i className="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a
+              href={props.data ? props.data.twitter : "/"}
+              className="text-pink-500 text-2xl"
+            >
+              <i className="fa fa-instagram"></i>
+            </a>
+          </li>
+          <li>
+            <a
+              href={
+                props.data
+                  ? props.data.youtube
+                  : "https://www.youtube.com/@RubyAariFusion"
+              }
+              className="text-red-600 text-2xl"
+            >
+              <i className="fa fa-youtube"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    {/* Footer Bottom */}
+    <div className="text-center mt-6">
+      <p>
+        <a
+          href="http://www.rubyaarifusion.com"
+          rel="nofollow"
+          className="text-gray-400"
+        >
+          &copy; 2024 Ruby Aari Fusion.
+        </a>
+      </p>
+    </div>
+  </div>
+)}
+
     </div>
   );
 };
