@@ -1,0 +1,18 @@
+/* Global Styles for Gradient Animation */
+@keyframes gradient-rainbow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .animate-gradient-rainbow {
+    background-size: 200% 200%;
+    animation: gradient-rainbow 5s linear infinite;
+  }
+  
