@@ -22,35 +22,35 @@ const MyCarousel = () => {
   const slides = [
     {
       key: uuidv4(),
-      content: <img src="src/assets/img/IMG-20241228-WA0005.jpg" alt="1" />,
+      content: <img src="./IMG-20241228-WA0005.jpg" alt="1" />,
     },
     {
       key: uuidv4(),
-      content: <img src="src/assets/img/IMG-20241228-WA0009.jpg" alt="2" />,
+      content: <img src="./IMG-20241228-WA0009.jpg" alt="2" />,
     },
     {
       key: uuidv4(),
-      content: <img src="src/assets/img/IMG-20241228-WA0002.jpg" alt="3" />,
+      content: <img src="./IMG-20241228-WA0002.jpg" alt="3" />,
     },
     {
       key: uuidv4(),
-      content: <img src="src/assets/img/IMG-20241228-WA0004.jpg" alt="4" />,
+      content: <img src="./IMG-20241228-WA0004.jpg" alt="4" />,
     },
     {
       key: uuidv4(),
-      content: <img src="src/assets/img/IMG-20241228-WA0010.jpg" alt="5" />,
+      content: <img src="./IMG-20241228-WA0010.jpg" alt="5" />,
     },
     {
       key: uuidv4(),
-      content: <img src="src/assets/img/IMG-20241228-WA0007.jpg" alt="6" />,
+      content: <img src="./IMG-20241228-WA0007.jpg" alt="6" />,
     },
     {
       key: uuidv4(),
-      content: <img src="src/assets/img/IMG-20241228-WA0008.jpg" alt="7" />,
+      content: <img src="./IMG-20241228-WA0008.jpg" alt="7" />,
     },
     {
       key: uuidv4(),
-      content: <img src="src/assets/img/IMG-20241228-WA0006.jpg" alt="8" />,
+      content: <img src="./IMG-20241228-WA0006.jpg" alt="8" />,
     },
   ].map((slide, index) => {
     return { ...slide, onClick: () => setGoToSlide(index) };

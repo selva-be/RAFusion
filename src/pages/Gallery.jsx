@@ -4,23 +4,23 @@ import React from "react";
 const galleryData = [
   {
     title: "Custom Aari Work - Design 1",
-    largeImage: "src/assets/img/IMG-20241228-WA0004.jpg",
-    smallImage: "src/assets/img/IMG-20241228-WA0002.jpg",  // Replace with your actual thumbnail images
+    largeImage: "./IMG-20241228-WA0004.jpg",
+    smallImage: "./IMG-20241228-WA0002.jpg",  // Replace with your actual thumbnail images
   },
   {
     title: "Aari Accessories - Set 1",
-    largeImage: "src/assets/img/IMG-20241228-WA0004.jpg",
-    smallImage: "src/assets/img/IMG-20241228-WA0002.jpg",
+    largeImage: "./IMG-20241228-WA0004.jpg",
+    smallImage: "./IMG-20241228-WA0002.jpg",
   },
   {
     title: "Aari Custom Work - Design 2",
-    largeImage: "src/assets/img/IMG-20241228-WA0004.jpg",
-    smallImage: "src/assets/img/IMG-20241228-WA0002.jpg",
+    largeImage: "./IMG-20241228-WA0004.jpg",
+    smallImage: "./IMG-20241228-WA0002.jpg",
   },
   {
     title: "Aari Accessories - Set 2",
-    largeImage: "src/assets/img/IMG-20241228-WA0004.jpg",
-    smallImage: "src/assets/img/IMG-20241228-WA0002.jpg",
+    largeImage: "./IMG-20241228-WA0004.jpg",
+    smallImage: "./IMG-20241228-WA0002.jpg",
   },
 ];
 

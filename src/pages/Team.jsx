@@ -5,7 +5,7 @@ const partnersData = [
   {
     name: "Partner 1",
     job: "Founder & Lead Designer",
-    img: "src/assets/img/IMG-20241228-WA0002.jpg", // Replace with actual image URL
+    img: "./IMG-20241228-WA0002.jpg", // Replace with actual image URL
   },
   {
     name: "Partner 2",
