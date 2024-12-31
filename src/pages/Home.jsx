@@ -42,6 +42,25 @@ const Home = (props) => {
 
   // Clear form input fields
   const clearState = () => setState({ ...initialState });
+  const handleMouseMove = (e) => {
+    const image = e.target;
+    const { clientX, clientY } = e;
+    const { left, top, width, height } = image.getBoundingClientRect();
+
+    // Calculate rotation angles
+    const rotateX = ((clientY - top) / height - 0.5) * 20;
+    const rotateY = ((clientX - left) / width - 0.5) * -20;
+
+    image.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+  };
+
+  const resetImage = () => {
+    const images = document.querySelectorAll("img");
+    images.forEach((image) => {
+      image.style.transform =
+        "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
+    });
+  };
 
   // Handle form submission
   const handleSubmit = (e) => {
@@ -104,12 +123,34 @@ const Home = (props) => {
       {/* Home Section */}
 
       <div className="relative flex flex-col gap-6 lg:flex-row items-center justify-center w-full min-h-screen p-4 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
-        {/* Title Section */}
-        <div className="flex flex-col text-center lg:text-left text-white">
+        {/* Background Image */}
+        <img
+          src="./BlackLogo.svg"
+          alt="Logo"
+          className={`absolute w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] md:w-[250px] md:h-[250px] lg:w-[300px] lg:h-[300px] xl:w-[400px] xl:h-[400px] object-cover top-[10%] sm:top-[-15%] md:top-[-5%] left-[25%] sm:left-[10%] md:left-[25%] lg:left-[38%] transition-transform ease-in-out duration-1000 ${
+            isLoaded ? "opacity-100" : "opacity-0"
+          }`}
+          style={{
+            zIndex: 1, // Ensure the image is in the background
+            transform: isLoaded
+              ? "perspective(1000px) rotateY(0deg) rotateX(0deg)"
+              : "perspective(1000px) rotateY(20deg) rotateX(10deg)", // Initial 3D effect
+          }}
+          onMouseMove={(e) => handleMouseMove(e)}
+          onMouseLeave={() => resetImage()}
+        />
+
+        {/* Text Section */}
+        <div
+          className="flex flex-col text-center lg:text-left text-white"
+          style={{
+            zIndex: 2, // Ensure text is above the image
+            position: "relative", // Maintain its own stacking context
+          }}
+        >
           <div className="flex justify-center">
             {/* Animate each letter of the title */}
             {isMobile ? (
-              // Mobile view - split AARI and FUSION into two lines
               <h1 className="text-6xl sm:text-8xl md:text-9xl lg:text-10xl xl:text-[250px] md:top-[-10%] font-bold tracking-wide leading-tight shadow-lg hover:text-gray-200 transition-all duration-500 mt-[13%]">
                 <span
                   className={`inline-block ${
@@ -141,8 +182,7 @@ const Home = (props) => {
                 </span>
               </h1>
             ) : (
-              // Desktop view - show all letters of "AARI FUSION" in a single line
-              <h1 className="text-6xl sm:text-8xl md:text-9xl lg:text-10xl xl:text-[250px] md:top-[-10%] font-bold tracking-wide leading-tight shadow-lg hover:text-gray-200 transition-all duration-500 mt-[13%]">
+              <h1 className="text-6xl sm:text-8xl md:text-9xl lg:text-10xl xl:text-[200px] md:top-[-10%] font-bold tracking-wide leading-tight shadow-lg hover:text-gray-200 transition-all duration-500 mt-[13%]">
                 {titleLetters.map((letter, index) => (
                   <span
                     key={index}
@@ -168,19 +208,10 @@ const Home = (props) => {
             )}
           </div>
 
-          <img
-            src="./BlackLogo.svg"
-            alt="Logo"
-            className={`absolute w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px] lg:w-[550px] lg:h-[550px] xl:w-[700px] xl:h-[700px] object-cover top-[10%] sm:top-[-15%] md:top-[-10%] left-[25%] sm:left-[10%] md:left-[25%] lg:left-[33%] hover:translate-y-4 transition-transform ease-in-out duration-1000 ${
-              isLoaded ? "opacity-100" : "opacity-0"
-            }`}
-          />
-
           <button className="bg-gray-900 text-white p-3 rounded-md cursor-pointer hover:bg-gray-800 text-lg w-40 mx-auto mt-[30px]">
             <Link to="/explore">Explore Now</Link>
           </button>
         </div>
-        {/* Button Section */}
       </div>
 
       {/* About Section */}
@@ -334,8 +365,8 @@ const Home = (props) => {
           {/* Contact Info */}
           <div className="container mx-auto flex flex-col lg:flex-row justify-between items-start lg:items-center px-6">
             {/* Social Links (Left Side) */}
-             {/* Contact Info (Right Side) */}
-             <div className="contact-info text-right lg:text-left">
+            {/* Contact Info (Right Side) */}
+            <div className="contact-info text-right lg:text-left">
               <h3 className="text-xl font-semibold text-white mb-4">
                 Contact Info
               </h3>
@@ -392,7 +423,6 @@ const Home = (props) => {
                 </li>
               </ul>
             </div>
-           
           </div>
           {/* Footer Bottom */}
           <div className="text-center mt-6">
@@ -401,8 +431,7 @@ const Home = (props) => {
                 href="http://www.rubyaarifusion.com"
                 rel="nofollow"
                 className="text-gray-400"
-                >
-                
+              >
                 &copy; 2024 Ruby Aari Fusion.
               </a>
             </p>
